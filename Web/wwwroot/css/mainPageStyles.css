@@ -33,7 +33,10 @@ body {
 .header-container {
     position: relative;
     
-    width: 1512px;
+    min-width: 800px;
+    width: 100%;
+    max-width: 1512px;
+
     height: 84px;
 
     margin: 0px auto;
