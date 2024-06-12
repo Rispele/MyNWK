@@ -23,6 +23,10 @@ function addStyleSheets(href) {
         logoPng.src = "/assets/logoInversia.png";
     }
 
+    if (profilePhotoPng !== null) {
+        profilePhotoPng.src = "/assets/profilePhotoInversia.png"
+    }
+
     if (editPng1 !== null) {
         editPng1.src = "/assets/editButtonInversia.png";
     }
@@ -55,6 +59,10 @@ function disableStyleSheets(href) {
         logoPng.src = "/assets/logo.png";
     }
 
+    if (profilePhotoPng !== null) {
+        profilePhotoPng.src = "/assets/profilePhoto.png"
+    }
+
     if (editPng1 !== null) {
         editPng1.src = "/assets/editButton.png";
     }
@@ -82,5 +90,6 @@ modeButton[0].addEventListener('click', () => switchMode("/css/ColorsInversia.cs
 const modeButtonPng = document.getElementById("modeButton");
 const logoPng = document.getElementById("logo");
 const cartPng = document.getElementById("cart");
+const profilePhotoPng = document.getElementById("profilePhoto");
 
 let mode = false;
