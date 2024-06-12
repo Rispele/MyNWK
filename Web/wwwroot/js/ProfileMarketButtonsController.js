@@ -12,48 +12,96 @@ function openSettingsWindow() {
     fetch('api/get/market/info', {method: 'get'})
         .then((response) => response.json())
         .then((marketInfo) => {
-            const settings = settingsWindow.getElementsByClassName('settings-form-container')[0];
             console.log(marketInfo);
-            settings.innerHTML = `
-            <div class="settings-header">Настройте свой магазин</div>
+            const settings = settingsWindow.getElementsByClassName('settings-form-container')[0];
+            settings.innerHTML = '';
             
-            <input hidden='true' type="number" name="id" value="${marketInfo.id}"/>
+            const settingsHeader = document.createElement('div');
+            settingsHeader.setAttribute('class', 'settings-header');
+            settingsHeader.textContent = 'Настройте свой магазин';
+
+            const id = document.createElement('input');
+            id.setAttribute('hidden', 'true');
+            id.setAttribute('type', 'number');
+            id.setAttribute('name', 'id');
+            id.setAttribute('value', `${marketInfo.id}`);
+
+            const settingsContent1 = document.createElement('div');
+            settingsContent1.setAttribute('class', 'settings-content');
+            settingsContent1.textContent = 'Название магазина';
+
+            const settingsFields1 = document.createElement('input');
+            settingsFields1.setAttribute('class', 'settings-fields');
+            settingsFields1.setAttribute('type', 'text');
+            settingsFields1.setAttribute('name', 'name');
+            settingsFields1.setAttribute('value', `${marketInfo.name}`);
+
+            const settingsContent2 = document.createElement('div');
+            settingsContent2.setAttribute('class', 'settings-content');
+            settingsContent2.textContent = 'Описание магазина';
+
+            const settingsFields2 = document.createElement('input');
+            settingsFields2.setAttribute('class', 'settings-fields');
+            settingsFields2.setAttribute('type', 'text');
+            settingsFields2.setAttribute('name', 'description');
+            settingsFields2.setAttribute('value', `${marketInfo.description}`);
+
+            const settingsContent3 = document.createElement('div');
+            settingsContent3.setAttribute('class', 'settings-content');
+            settingsContent3.textContent = 'Время работы от:';
+
+            const settingsFields3 = document.createElement('input');
+            settingsFields3.setAttribute('id', 'time-from');
+            settingsFields3.setAttribute('class', 'settings-fields');
+            settingsFields3.setAttribute('type', 'time');
+            settingsFields3.setAttribute('name', 'worksFrom');
+            settingsFields3.setAttribute('value', `${marketInfo.worksFrom}`);
+
+            const settingsContent4 = document.createElement('div');
+            settingsContent4.setAttribute('class', 'settings-content');
+            settingsContent4.textContent = 'Время работы до:';
+
+            const settingsFields4 = document.createElement('input');
+            settingsFields4.setAttribute('id', 'time-to');
+            settingsFields4.setAttribute('class', 'settings-fields');
+            settingsFields4.setAttribute('type', 'time');
+            settingsFields4.setAttribute('name', 'worksTo');
+            settingsFields4.setAttribute('value', `${marketInfo.worksTo}`);
+
+            const settingsContent5 = document.createElement('div');
+            settingsContent5.setAttribute('class', 'settings-content');
+            settingsContent5.textContent = 'Скрывать товары вне времени работы:';
+
+            const settingsFields5 = document.createElement('input');
+            settingsFields5.setAttribute('id', 'auto-hide');
+            settingsFields5.setAttribute('class', 'settings-fields');
+            settingsFields5.setAttribute('type', 'checkbox');
+            settingsFields5.setAttribute('name', 'autoHide');
+            settingsFields5.setAttribute('value', `${marketInfo.autoHide ? "checked" : ""}`);
+
             
-            <div class="settings-content">
-                Название магазина
-            </div>
+            const settingsAccept = document.createElement('input');
+            settingsAccept.setAttribute('class', 'settings-accept');
+            settingsAccept.setAttribute('type', 'submit');
+            settingsAccept.setAttribute('value', 'Изменить');
 
-            <input class="settings-fields" type="text" name="name" value="${marketInfo.name}"/>
+            const settingsButtons = document.createElement('div');
+            settingsButtons.setAttribute('class', 'settings-buttons');
+            settingsButtons.appendChild(settingsAccept);
 
-            <div class="settings-content">
-                Описание магазина
-            </div>
-
-            <input class="settings-fields" type="text" name="description" value="${marketInfo.description}"/>
-
-            <div class="settings-content">
-                Время работы от:
-            </div>
-
-            <input id="time-from" class="settings-fields" type="time" name="worksFrom" value="${marketInfo.worksFrom}"/>
-
-            <div class="settings-content">
-                Время работы до:
-            </div>
-
-            <input id="time-to" class="settings-fields" type="time" name="worksTo" value="${marketInfo.worksTo}"/>
-            
-            <div class="settings-content">
-                Скрывать товары вне времени работы:
-            </div>
-
-            <input id="auto-hide" class="settings-fields" type="checkbox" name="autoHide" ${marketInfo.autoHide ? "checked" : ""}>
-            
-            <div class="settings-buttons">
-                <input class="settings-accept" type="submit" value="Изменить"/>
-            </div>`;
-            
-            
+            settings.appendChild(settingsHeader);
+            settings.appendChild(id);
+            settings.appendChild(settingsContent1);
+            settings.appendChild(settingsFields1);
+            settings.appendChild(settingsContent2);
+            settings.appendChild(settingsFields2);
+            settings.appendChild(settingsContent3);
+            settings.appendChild(settingsFields3);
+            settings.appendChild(settingsContent4);
+            settings.appendChild(settingsFields4);
+            settings.appendChild(settingsContent5);
+            settings.appendChild(settingsFields5);
+            settings.appendChild(settingsButtons);
         })
 }
 
@@ -63,7 +111,11 @@ function closeSettingsWindow() {
 
 function closeProductInfoUpdateWindow() {
     productInfoUpdateWindow.hidden = true;
-    productInfoUpdateWindow.innerHTML = `<div id="profile-market-info-update-close" class="product-card-background-shadow"></div>`;
+    productInfoUpdateWindow.innerHTML = '';
+    const profileMarketInfoUpdateClose = document.createElement('div');
+    profileMarketInfoUpdateClose.setAttribute('id', 'profile-market-info-update-close');
+    profileMarketInfoUpdateClose.setAttribute('class', 'product-card-background-shadow');
+    productInfoUpdateWindow.appendChild(profileMarketInfoUpdateClose);
     productInfoUpdateCloseButton = document.getElementById("profile-market-info-update-close");
     productInfoUpdateCloseButton.addEventListener('click', () => closeProductInfoUpdateWindow());
 }

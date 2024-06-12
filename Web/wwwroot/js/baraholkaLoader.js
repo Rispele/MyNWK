@@ -57,7 +57,7 @@ async function openProductInfoWindow(data) {
             description.insertAdjacentText('afterbegin', `Описание: ${infoParams['description']}`);
 
             const container = document.getElementsByClassName("product-info-form-container")[0];
-            container.innerHTML = '';
+            container.textContent = '';
             container.appendChild(productImage);
             container.appendChild(header);
             container.appendChild(productId);
@@ -221,7 +221,7 @@ async function fetchProducts(categoryId, marketId) {
     SELLER = marketId;
     getAllProductsUrl.search = new URLSearchParams(params).toString();
     const slots = document.getElementsByClassName("baraholka-slots-container")[0];
-    slots.innerHTML = '';
+    slots.textContent = '';
     fetch(getAllProductsUrl, {method: 'get'})
         .then((response) => response.json())
         .then((products) => {

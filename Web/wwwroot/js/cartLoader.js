@@ -52,7 +52,7 @@
                         .then(() => window.location.reload());
                 })
             } else {
-                document.getElementsByClassName('cart-accept')[0].innerHTML = "Корзина пуста";
+                document.getElementsByClassName('cart-accept')[0].textContent = "Корзина пуста";
             }
         });
 });
