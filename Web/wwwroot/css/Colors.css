@@ -1,9 +1,22 @@
-:root {
+/* :root {
     --background-color: #FFFAF3;
     --border-color: #FFA25E;
     --content-color: #FFA25E;
     --background-card-color: #FFEDD8;
     --content-color-2: #FF7B1B;
+    --basic-color: white;
+    --shadow-opacity: 0.25;
+} */
+
+
+:root {
+    --peek-color: #FF9B20;
+    --peek-content-color: white;
+    --background-color: white;
+    --border-color: #FF9B20;
+    --content-color: #FF9B20;
+    --background-card-color: #FFF8F0;
+    --content-color-2: #FD8A00;
     --basic-color: white;
     --shadow-opacity: 0.25;
 }

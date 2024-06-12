@@ -27,7 +27,7 @@ body {
 
     z-index: 3;
 
-    background: var(--background-card-color);
+    background: var(--peek-color);
     border-bottom: 2px solid var(--border-color);
 
     display: flex;
@@ -77,12 +77,12 @@ body {
     width: 180px;
     height: 32px;
 
-    background-color: var(--background-card-color);
-    border: 2px solid var(--content-color);
+    background-color: var(--peek-color);
+    border: 2px solid var(--peek-color);
     border-radius: 7px;
 
     font-size: 20px;
-    color: var(--content-color);
+    color: var(--peek-content-color);
 
     z-index: 4;
 }
@@ -97,12 +97,11 @@ body {
     width: 180px;
     height: 32px;
 
-    background-color: var(--background-card-color);
-    border: 2px solid var(--content-color);
+    background-color: var(--peek-color);
+    border: 2px solid var(--peek-color);
     border-radius: 7px;
 
     font-size: 20px;
-    color: var(--content-color);
 
     z-index: 4;
 }
@@ -113,7 +112,7 @@ body {
 .link {
     text-decoration: none;
     font-size: 20px;
-    color:var(--content-color);
+    color:var(--peek-content-color);
     font-weight: 500;
 }
 
