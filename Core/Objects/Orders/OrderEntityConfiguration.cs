@@ -12,7 +12,7 @@ public class OrderEntityConfiguration : IEntityTypeConfiguration<Order>
     {
         builder.ToTable("orders");
         builder.HasKey(t => t.Id);
-        builder.Property(t => t.Id).ValueGeneratedOnAdd().HasColumnType("bigserial");
+        // builder.Property(t => t.Id).ValueGeneratedOnAdd().HasColumnType("bigserial");
         
         builder.HasIndex(t => t.OrderId);
         builder.HasIndex(t => t.BuyerId);

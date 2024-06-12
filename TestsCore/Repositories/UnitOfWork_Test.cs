@@ -7,7 +7,6 @@ using Core.Services.Products;
 using Core.Objects.Users;
 using Microsoft.EntityFrameworkCore;
 using Core.BlobStorage;
-using Npgsql;
 
 namespace TestsCore.Repositories;
 
@@ -20,32 +19,31 @@ public class UnitOfWork_Test
     
     public UnitOfWork_Test()
     {
-        
+        var optionsBuilder = new DbContextOptionsBuilder();
+        optionsBuilder
+            .UseNpgsql("Host=rc1b-vzhlxwk7unucxilx.mdb.yandexcloud.net;" +
+                       "Port=6432;" +
+                       "Database=core;" +
+                       "Username=my-nwk-connection;" +
+                       "Password=kn8i6S9WHAqycEH;" +
+                       "Ssl Mode=Require;" +
+                       "Trust Server Certificate=true;")
+            .UseLazyLoadingProxies()
+            .UseSnakeCaseNamingConvention()
+            .LogTo(Console.WriteLine);
+        var dbContext = new CoreDbContext(optionsBuilder.Options);
+        unitOfWork = new UnitOfWork(dbContext);
+        unitOfWorkProvider = new UnitOfWorkProvider(() => dbContext);
+        client = new YdBlobStorageClient();
     }
 
-    [Test]
-    public async Task T()
+    [OneTimeTearDown]
+    public async Task TearDown()
     {
-        var host       = "rc1b-4wtfkm4pdxky8dd8.mdb.yandexcloud.net";
-        var port       = "6432";
-        var db         = "db1";
-        var username   = "my-nwk-user";
-        var password   = "kn8i6S9WHAqycEH";
-        var connString = $"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=VerifyFull;";
-
-        await using var conn = new NpgsqlConnection(connString);
-        await conn.OpenAsync();
-
-        await using (var cmd = new NpgsqlCommand("SELECT VERSION();", conn))
-        await using (var reader = await cmd.ExecuteReaderAsync())
-        {
-            while (await reader.ReadAsync())
-            {
-                Console.WriteLine(reader.GetInt32(0));
-            }
-        }
+        await unitOfWork.DisposeAsync();
+        client.Dispose();
     }
-    
+
     [Test]
     public async Task Test()
     {
