@@ -123,7 +123,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             if (userId !== "non") {
                 const li = document.createElement('li');
                 li.setAttribute('class', 'li');
-                li.setAttribute('id', 'profileli');
                 document.getElementsByClassName("tgli")[0].remove();
                 li.insertAdjacentHTML("afterbegin", `<a class="link" href="profile">Профиль</a>`);
                 document.getElementsByClassName("ul")[0].appendChild(li)
