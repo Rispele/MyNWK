@@ -41,7 +41,7 @@ async function loadPurchases() {
                     .then((userId) => {
                         const header = document.createElement('div');
                         header.setAttribute('class', 'profile-purchases-header');
-                        header.innerHTML = `Телеграм продавца @${userId["username"]}`;
+                        header.textContent = `Телеграм продавца @${userId["username"]}`;
 
                         const innerContainer = document.createElement('div');
                         innerContainer.setAttribute('class', 'profile-purchases-inner-container');
@@ -50,26 +50,38 @@ async function loadPurchases() {
                         if (order["workflowState"] === 4) {
                             const div = document.createElement('div');
                             div.setAttribute('class', "profile-purchases-status");
-                            div.innerHTML = `Отменён
-                            <img src="/assets/otmeneno.png" width="15px" height="15px">`;
+                            div.textContent = 'Отменён ';
+                            img = document.createElement('img');
+                            img.setAttribute('src', "/assets/otmeneno.png");
+                            img.setAttribute('width', "15px");
+                            img.setAttribute('height', "15px");
+                            div.appendChild(img);
                             innerContainer.appendChild(div);
                         } else if (order["workflowState"] === 3) {
                             const div = document.createElement('div');
                             div.setAttribute('class', "profile-purchases-status");
-                            div.innerHTML = `Получен
-                            <img src="/assets/poluchen.png" width="15px" height="15px">`;
+                            div.textContent = 'Получен ';
+                            img = document.createElement('img');
+                            img.setAttribute('src', "/assets/poluchen.png");
+                            img.setAttribute('width', "15px");
+                            img.setAttribute('height', "15px");
+                            div.appendChild(img);
                             innerContainer.appendChild(div);
                         } else if (order["workflowState"] === 2) {
                             const div = document.createElement('div');
                             div.setAttribute('class', "profile-purchases-status");
-                            div.innerHTML = `Принят в работу
-                            <img src="/assets/prinyato.png" width="15px" height="15px">`;
+                            div.textContent = 'Принят в работу ';
+                            img = document.createElement('img');
+                            img.setAttribute('src', "/assets/prinyato.png");
+                            img.setAttribute('width', "15px");
+                            img.setAttribute('height', "15px");
+                            div.appendChild(img);
                             innerContainer.appendChild(div);
                             
                             const button = document.createElement('button');
                             button.setAttribute('class', "profile-purchases-accept");
                             button.setAttribute('id', `accept-${order["orderId"]}`);
-                            button.innerHTML = 'Подтвердить получение';
+                            button.textContent = 'Подтвердить получение';
                             button.addEventListener('click', async (event) => {
                                 const confirm = new URL('http://127.0.0.1:80/orders/confirm');
                                 const id = event.target.getAttribute('id');
@@ -81,7 +93,7 @@ async function loadPurchases() {
                         } else if (order["workflowState"] === 1) {
                             const div = document.createElement('div');
                             div.setAttribute('class', "profile-purchases-status");
-                            div.innerHTML = `Ожидание ответа продавца`;
+                            div.textContent = 'Ожидание ответа продавца';
                             innerContainer.appendChild(div);
                         } 
                         container.appendChild(innerContainer);
@@ -184,7 +196,7 @@ async function loadOrders() {
                     .then((userId) => {
                         const header = document.createElement('div');
                         header.setAttribute('class', 'profile-orders-header');
-                        header.innerHTML = `Телеграм покупателя @${userId["username"]}`;
+                        header.textContent = `Телеграм покупателя @${userId["username"]}`;
 
                         const innerContainer = document.createElement('div');
                         innerContainer.setAttribute('class', 'profile-orders-inner-container');
@@ -194,26 +206,38 @@ async function loadOrders() {
                         if (order["workflowState"] === 4) {
                             const div = document.createElement('div');
                             div.setAttribute('class', "profile-orders-status");
-                            div.innerHTML = `Отменён
-                            <img src="/assets/otmeneno.png" width="15px" height="15px">`;
+                            div.textContent = 'Отменён ';
+                            img = document.createElement('img');
+                            img.setAttribute('src', "/assets/otmeneno.png");
+                            img.setAttribute('width', "15px");
+                            img.setAttribute('height', "15px");
+                            div.appendChild(img);
                             innerContainer.appendChild(div);
                         } else if (order["workflowState"] === 3) {
                             const div = document.createElement('div');
                             div.setAttribute('class', "profile-orders-status");
-                            div.innerHTML = `Получен
-                            <img src="/assets/poluchen.png" width="15px" height="15px">`;
+                            div.textContent = 'Получен ';
+                            img = document.createElement('img');
+                            img.setAttribute('src', "/assets/poluchen.png");
+                            img.setAttribute('width', "15px");
+                            img.setAttribute('height', "15px");
+                            div.appendChild(img);
                             innerContainer.appendChild(div);
                         } else if (order["workflowState"] === 2) {
                             const div = document.createElement('div');
                             div.setAttribute('class', "profile-orders-status");
-                            div.innerHTML = `Принят в работу
-                            <img src="/assets/prinyato.png" width="15px" height="15px">`;
+                            div.textContent = 'Принят в работу ';
+                            img = document.createElement('img');
+                            img.setAttribute('src', "/assets/prinyato.png");
+                            img.setAttribute('width', "15px");
+                            img.setAttribute('height', "15px");
+                            div.appendChild(img);
                             innerContainer.appendChild(div);
         
                             const cancelButton = document.createElement('button');
                             cancelButton.setAttribute('class', "profile-orders-cancel");
                             cancelButton.setAttribute('id', `cancel-${order["orderId"]}`);
-                            cancelButton.innerHTML = 'Отменить заказ';
+                            cancelButton.textContent = 'Отменить заказ';
                             cancelButton.addEventListener('click', async (event) => {
                                 const id = event.target.getAttribute('id');
                                 const cancel = new URL('http://127.0.0.1:80/orders/cancel');
@@ -226,7 +250,7 @@ async function loadOrders() {
                             const cancelButton = document.createElement('button');
                             cancelButton.setAttribute('class', "profile-orders-cancel");
                             cancelButton.setAttribute('id', `cancel-${order["orderId"]}`);
-                            cancelButton.innerHTML = 'Отменить заказ';
+                            cancelButton.textContent = 'Отменить заказ';
                             cancelButton.addEventListener('click', async (event) => {
                                 const id = event.target.getAttribute('id');
                                 const cancel = new URL('http://127.0.0.1:80/orders/cancel');
@@ -239,7 +263,7 @@ async function loadOrders() {
                             const confirmButton = document.createElement('button');
                             confirmButton.setAttribute('class', "profile-orders-accept");
                             confirmButton.setAttribute('id', `cancel-${order["orderId"]}`);
-                            confirmButton.innerHTML = 'Взять в работу';
+                            confirmButton.textContent = 'Взять в работу';
                             confirmButton.addEventListener('click', async (event) => {
                                 const id = event.target.getAttribute('id');
                                 const cancel = new URL('http://127.0.0.1:80/orders/confirm');
@@ -424,9 +448,19 @@ function openPurchases() {
     productsInnerContainer[0].hidden = true;
     ordersInnerContainer[0].hidden = true;
 
-    document.getElementById("profile-tabs-purchases").innerHTML = "<b>Мои покупки</b>";
-    document.getElementById("profile-tabs-products").innerHTML = "Мои товары";
-    document.getElementById("profile-tabs-orders").innerHTML = "Мои заказы";
+    const purchases = document.getElementById("profile-tabs-purchases");
+    purchases.innerHTML = '';
+    const b = document.createElement('b');
+    b.textContent = "Мои покупки"
+    purchases.appendChild(b);
+
+    const products = document.getElementById("profile-tabs-products");
+    products.innerHTML = '';
+    products.textContent = "Мои товары";
+
+    const orders = document.getElementById("profile-tabs-orders");
+    orders.innerHTML = '';
+    orders.textContent = "Мои заказы";
 
     purchasesInnerContainer[0].style.opacity = 1;
     productsInnerContainer[0].style.opacity = 0;
@@ -438,9 +472,19 @@ function openProducts () {
     productsInnerContainer[0].hidden = false;
     ordersInnerContainer[0].hidden = true;
 
-    document.getElementById("profile-tabs-purchases").innerHTML = "Мои покупки";
-    document.getElementById("profile-tabs-products").innerHTML = "<b>Мои товары</b>";
-    document.getElementById("profile-tabs-orders").innerHTML = "Мои заказы";
+    const purchases = document.getElementById("profile-tabs-purchases");
+    purchases.innerHTML = '';
+    purchases.textContent = "Мои покупки";
+
+    const products = document.getElementById("profile-tabs-products");
+    products.innerHTML = '';
+    const b = document.createElement('b');
+    b.textContent = "Мои товары"
+    products.appendChild(b);
+    
+    const orders = document.getElementById("profile-tabs-orders");
+    orders.innerHTML = '';
+    orders.textContent = "Мои заказы";
 
     purchasesInnerContainer[0].style.opacity = 0;
     productsInnerContainer[0].style.opacity = 1;
@@ -452,10 +496,20 @@ function openOrders () {
     productsInnerContainer[0].hidden = true;
     ordersInnerContainer[0].hidden = false;
 
-    document.getElementById("profile-tabs-purchases").innerHTML = "Мои покупки";
-    document.getElementById("profile-tabs-products").innerHTML = "Мои товары";
-    document.getElementById("profile-tabs-orders").innerHTML = "<b>Мои заказы</b>";
+    const purchases = document.getElementById("profile-tabs-purchases");
+    purchases.innerHTML = '';
+    purchases.textContent = "Мои покупки";
 
+    const products = document.getElementById("profile-tabs-products");
+    products.innerHTML = '';
+    products.textContent = "Мои товары";
+    
+    const orders = document.getElementById("profile-tabs-orders");
+    orders.innerHTML = '';
+    const b = document.createElement('b');
+    b.textContent = "Мои заказы";
+    orders.appendChild(b);
+    
     purchasesInnerContainer[0].style.opacity = 0;
     productsInnerContainer[0].style.opacity = 0;
     ordersInnerContainer[0].style.opacity = 1;
