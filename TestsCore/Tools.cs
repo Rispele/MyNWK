@@ -38,10 +38,10 @@ public class Tools
     {
         var optionsBuilder = new DbContextOptionsBuilder();
         optionsBuilder
-            .UseNpgsql("Host=rc1d-fzm7z4p51iz3qylc.mdb.yandexcloud.net;" +
+            .UseNpgsql("Host=rc1b-vzhlxwk7unucxilx.mdb.yandexcloud.net;" +
                        "Port=6432;" +
                        "Database=core;" +
-                       "Username=mynwk-connection;" +
+                       "Username=my-nwk-connection;" +
                        "Password=kn8i6S9WHAqycEH;" +
                        "Ssl Mode=Require;" +
                        "Trust Server Certificate=true;")

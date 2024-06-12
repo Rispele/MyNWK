@@ -18,6 +18,12 @@ public class BlobStorage_Test
         blobsCreated = new List<Guid>();
     }
 
+    [OneTimeTearDown]
+    public async Task TearDown()
+    {
+        blobStorageClient.Dispose();
+    }
+    
     [TearDown]
     public async Task Teardown()
     {
