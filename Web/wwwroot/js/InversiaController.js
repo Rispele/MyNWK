@@ -20,10 +20,10 @@ function addStyleSheets(href) {
         logoPng.src = "/assets/logoInversia.png";
     }
 
-    for (png of editPng) {
-        png.src = "/assets/editButtonInversia.png";
+    if (editPng !== null) {
+        console.log(editPng.id);
+        editPng.src = "/assets/editButtonInversia.png";
     }
-    
     mode = true;
 }
 
@@ -45,10 +45,11 @@ function disableStyleSheets(href) {
         logoPng.src = "/assets/logo.png";
     }
 
-    for (png of editPng) {
-        png.src = "/assets/editButton.png";
+    if (editPng !== null) {
+        console.log(editPng.id);
+        editPng.src = "/assets/editButton.png";
     }
-
+    
     mode=false;
 }
 
