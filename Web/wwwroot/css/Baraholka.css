@@ -462,3 +462,16 @@
 p {
     margin: 0px;
 }
+
+
+.your-product-text {
+    position: absolute;
+
+    top: 50%;
+    left: 350px;
+
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--content-color);
+    font-style: none;
+}
