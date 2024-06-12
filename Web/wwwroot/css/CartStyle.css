@@ -1,9 +1,9 @@
 .cart-container{
     position: relative;
 
-    margin: 121px auto;
+    margin: 120px auto;
 
-    max-width: 969px;
+    width: 1082px;
     min-height: 300px;
 }
 
