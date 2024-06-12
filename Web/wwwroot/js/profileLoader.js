@@ -21,7 +21,7 @@
                     `<img src="assets/editButton.png" width="28px" height="26px" id="editButton1"/>` +
                     `</button>`);
                 if (data["name"] !== null) {
-                    name.insertAdjacentText("afterbegin", `${data["name"]}`)
+                    name.insertAdjacentText("afterbegin", `${data["name"]} `)
                 } else {
                     name.insertAdjacentText("afterbegin", `Имя пользователя`)
                 }
@@ -126,7 +126,7 @@
             `<img src="assets/editButton.png" width="28px" height="26px" id="editButton2"/>` +
             `</button>`);
         if (data["address"] !== null) {
-            room.insertAdjacentText("afterbegin", `${data["address"]}`)
+            room.insertAdjacentText("afterbegin", `${data["address"]} `)
         } else {
             room.insertAdjacentText("afterbegin", `не указана`)
         }

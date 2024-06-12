@@ -83,7 +83,7 @@ function openSettingsWindow() {
             const settingsAccept = document.createElement('input');
             settingsAccept.setAttribute('class', 'settings-accept');
             settingsAccept.setAttribute('type', 'submit');
-            settingsAccept.setAttribute('value', 'Изменить');
+            settingsAccept.setAttribute('value', 'Применить');
 
             const settingsButtons = document.createElement('div');
             settingsButtons.setAttribute('class', 'settings-buttons');

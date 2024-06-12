@@ -52,7 +52,7 @@ async function loadPurchases() {
                             div.setAttribute('class', "profile-purchases-status");
                             div.textContent = 'Отменён ';
                             img = document.createElement('img');
-                            img.setAttribute('src', "/assets/otmeneno.png");
+                            img.setAttribute('src', "/assets/cancelled.png");
                             img.setAttribute('width', "15px");
                             img.setAttribute('height', "15px");
                             div.appendChild(img);
@@ -62,7 +62,7 @@ async function loadPurchases() {
                             div.setAttribute('class', "profile-purchases-status");
                             div.textContent = 'Получен ';
                             img = document.createElement('img');
-                            img.setAttribute('src', "/assets/poluchen.png");
+                            img.setAttribute('src', "/assets/received.png");
                             img.setAttribute('width', "15px");
                             img.setAttribute('height', "15px");
                             div.appendChild(img);
@@ -208,7 +208,7 @@ async function loadOrders() {
                             div.setAttribute('class', "profile-orders-status");
                             div.textContent = 'Отменён ';
                             img = document.createElement('img');
-                            img.setAttribute('src', "/assets/otmeneno.png");
+                            img.setAttribute('src', "/assets/cancelled.png");
                             img.setAttribute('width', "15px");
                             img.setAttribute('height', "15px");
                             div.appendChild(img);
@@ -218,7 +218,7 @@ async function loadOrders() {
                             div.setAttribute('class', "profile-orders-status");
                             div.textContent = 'Получен ';
                             img = document.createElement('img');
-                            img.setAttribute('src', "/assets/poluchen.png");
+                            img.setAttribute('src', "/assets/received.png");
                             img.setAttribute('width', "15px");
                             img.setAttribute('height', "15px");
                             div.appendChild(img);
