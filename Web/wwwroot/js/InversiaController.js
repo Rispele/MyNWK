@@ -2,6 +2,9 @@ function addStyleSheets(href) {
     const head = document.head;
     const link = document.createElement('link');
 
+    const editPng1 = document.getElementById("editButton1");
+    const editPng2 = document.getElementById("editButton2");
+
     link.rel = 'stylesheet';
     link.id = "inversia-true";
     link.href = href;
@@ -34,6 +37,9 @@ function addStyleSheets(href) {
 function disableStyleSheets(href) {
     const head = document.head;
     const link = document.getElementById("inversia-true");
+
+    const editPng1 = document.getElementById("editButton1");
+    const editPng2 = document.getElementById("editButton2");
 
     head.removeChild(link);
 
@@ -76,7 +82,5 @@ modeButton[0].addEventListener('click', () => switchMode("/css/ColorsInversia.cs
 const modeButtonPng = document.getElementById("modeButton");
 const logoPng = document.getElementById("logo");
 const cartPng = document.getElementById("cart");
-const editPng1 = document.getElementById("editButton1");
-const editPng2 = document.getElementById("editButton2");
 
 let mode = false;

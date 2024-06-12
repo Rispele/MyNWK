@@ -18,7 +18,7 @@
                 document.getElementsByClassName("profile-name")[0].remove();
                 name.insertAdjacentHTML("afterbegin",
                     `<button class="editorButton" id="user-name-editor">` +
-                    `<img src="assets/editButton.png" width="28px" height="26px"/>` +
+                    `<img src="assets/editButton.png" width="28px" height="26px" id="editButton1"/>` +
                     `</button>`);
                 if (data["name"] !== null) {
                     name.insertAdjacentText("afterbegin", `${data["name"]}`)
@@ -123,7 +123,7 @@
         document.getElementsByClassName("profile-room-info")[0].remove();
         room.insertAdjacentHTML("afterbegin",
             `<button class="editorButton" id="user-room-editor">` +
-            `<img src="assets/editButton.png" width="28px" height="26px"/>` +
+            `<img src="assets/editButton.png" width="28px" height="26px" id="editButton2"/>` +
             `</button>`);
         if (data["address"] !== null) {
             room.insertAdjacentText("afterbegin", `${data["address"]}`)
